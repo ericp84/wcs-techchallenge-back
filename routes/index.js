@@ -23,10 +23,14 @@ router.post('/create_argonauts',  async function(req, res) {
 
 ///// DISPLAY ALL ARGONAUTS /////
 router.get('/argonauts', async function(req, res) {
+  const error = [];
 
   const argoOnBoard = await argonautModel.find()
-
-  res.json({argoOnBoard})
+  if (argoOnBoard.length === 0) {
+    error.push("Pas de membres dans l'équipe 😨 !")
+  }
+  console.log(argoOnBoard)
+  res.json({argoOnBoard, error})
 })
 
 
