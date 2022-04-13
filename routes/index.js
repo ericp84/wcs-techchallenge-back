@@ -16,7 +16,6 @@ router.post('/create_argonauts',  async function(req, res) {
   })
 
   const newArgonaut = await argoData.save()
-  console.log(newArgonaut)
   res.json({newArgonaut})
 })
 
@@ -29,7 +28,6 @@ router.get('/argonauts', async function(req, res) {
   if (argoOnBoard.length === 0) {
     error.push("Pas de membres dans l'équipe 😨 !")
   }
-  console.log(argoOnBoard)
   res.json({argoOnBoard, error})
 })
 
